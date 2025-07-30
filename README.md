@@ -11,7 +11,7 @@ A aplicação demonstra a **interação de uma API Go com tecnologias blockchain
 * **Sincronizar (SYNC)** o valor da blockchain para o PostgreSQL.
 * **Verificar (CHECK)** a consistência entre o valor da blockchain e o valor no banco de dados.
 
-O projeto foi construído com foco em **arquitetura limpa**, **boas práticas de Go** (uso de `context.Context`, tratamento de erros robusto) e princípios **SOLID**, promovendo **código testável e de fácil manutenção**.
+O projeto foi construído com foco em **arquitetura limpa**, **boas práticas de Go** e princípios **SOLID**, promovendo **código testável e de fácil manutenção**.
 
 ---
 
@@ -41,11 +41,11 @@ Este projeto utiliza **Docker** e **Docker Compose** para orquestrar o ambiente 
 
 1.  **Clone o repositório:**
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO_FORKADO>
-    cd <nome_do_seu_projeto>
+    git clone <https://github.com/vmm2136/goledger-challenge-besu>
+    cd <goledger-challenge-besu>
     ```
 
-2.  **Crie e configure o arquivo `.env`** na raiz do projeto:
+2.  **Crie e configure o arquivo `.env`** na pasta go-app:
    
     ❗❗❗ ATENÇÃO ❗❗❗ Os valores abaixo estão explicitamente descritos apenas para facilitar o teste desta aplicação, não refletindo nenhuma conexão real (produção).
     
@@ -60,7 +60,6 @@ Este projeto utiliza **Docker** e **Docker Compose** para orquestrar o ambiente 
 
 4.  **Inicie o ambiente com o script de desenvolvimento:**
     ```bash
-    chmod +x startDev.sh
     ./startDev.sh
     ```
     Este script automatiza a instalação de dependências Hardhat, compilação/deploy do contrato, inicialização da rede Besu e, **via `docker-compose-postgres.yaml`, sobe o PostgreSQL (que automaticamente cria a tabela `contract_values`).**
@@ -81,7 +80,7 @@ Com a aplicação rodando (em `http://localhost:8080`), utilize sua ferramenta p
 
 ## 💡 Considerações Adicionais
 
-* **Automação do Ambiente:** A inclusão do `docker-compose-postgres.yaml` e a atualização do `startDev.sh` foram implementadas para garantir um **ambiente de desenvolvimento completo e de fácil reprodução**, englobando Besu, PostgreSQL e a própria aplicação Go. O script cuida do deploy do contrato e da criação da tabela no DB.
+* **Automação do Ambiente:** A inclusão do `docker-compose-postgres.yaml` e a atualização do `startDev.sh` foram implementadas para garantir um **ambiente de desenvolvimento completo e de fácil reprodução**, englobando Besu e PostgreSQL. O script cuida do deploy do contrato e da criação da tabela no banco.
 * **Gerenciamento de Segredos:** A chave privada do transator é carregada via variável de ambiente, evitando sua exposição no código fonte.
 * **Tratamento de Edge Cases:** A lógica de leitura do DB retorna `0` quando uma `contract_key` não é encontrada (em vez de erro), permitindo que as funções de `SYNC` e `CHECK` operem de forma fluida mesmo no estado inicial do banco.
 
