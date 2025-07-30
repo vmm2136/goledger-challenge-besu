@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/joho/godotenv"
-	"github.com/vmm2136/besu_challenge/go-app/internal/controller"
+	"github.com/vmm2136/besu_challenge/go-app/internal/handler"
 	"github.com/vmm2136/besu_challenge/go-app/internal/router"
 	"net/http"
 	"os"
@@ -61,7 +61,7 @@ func main() {
 	}
 
 	// 4. Inicializar a camada de Handler (expõe endpoints HTTP)
-	h := controller.NewHandler(contractService)
+	h := handler.NewHandler(contractService)
 
 	// 5. Configurar o Router (mapeia URLs para handlers)
 	router := router.NewRouter(h)
