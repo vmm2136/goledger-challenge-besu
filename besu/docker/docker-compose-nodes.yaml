@@ -10,7 +10,7 @@ services:
     entrypoint:
       - /bin/bash
       - -c
-      - besu --data-path=data --genesis-file=genesis/genesis.json --bootnodes=enode://c85291711e0dc6c6d10729f10e31ea42cd2a307321bb5ab5b0414d8ebde10fb5b6462080b283e98847cd5e03aabade0601d41d1e58ada64e3b0124eeecc449a3@172.20.0.2:30303 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+      - besu --data-path=data --genesis-file=genesis/genesis.json --bootnodes=enode://9a7e5c03e4b29aefeed948b475d58ad7d9376a35b914e79864eaf8550641979b743035fa3dfd32eafe227fa34e93b57a9a00065b84bbd79233770914274216d5@172.18.0.3:30303 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
     ports:
       - "8546:8546"
       - "30304:30304"
@@ -27,7 +27,7 @@ services:
     entrypoint:
       - /bin/bash
       - -c
-      - besu --data-path=data --genesis-file=genesis/genesis.json --bootnodes=enode://c85291711e0dc6c6d10729f10e31ea42cd2a307321bb5ab5b0414d8ebde10fb5b6462080b283e98847cd5e03aabade0601d41d1e58ada64e3b0124eeecc449a3@172.20.0.2:30303 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+      - besu --data-path=data --genesis-file=genesis/genesis.json --bootnodes=enode://9a7e5c03e4b29aefeed948b475d58ad7d9376a35b914e79864eaf8550641979b743035fa3dfd32eafe227fa34e93b57a9a00065b84bbd79233770914274216d5@172.18.0.3:30303 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
     ports:
       - "8547:8547"
       - "30305:30305"
@@ -44,7 +44,7 @@ services:
     entrypoint:
       - /bin/bash
       - -c
-      - besu --data-path=data --genesis-file=genesis/genesis.json --bootnodes=enode://c85291711e0dc6c6d10729f10e31ea42cd2a307321bb5ab5b0414d8ebde10fb5b6462080b283e98847cd5e03aabade0601d41d1e58ada64e3b0124eeecc449a3@172.20.0.2:30303 --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
+      - besu --data-path=data --genesis-file=genesis/genesis.json --bootnodes=enode://9a7e5c03e4b29aefeed948b475d58ad7d9376a35b914e79864eaf8550641979b743035fa3dfd32eafe227fa34e93b57a9a00065b84bbd79233770914274216d5@172.18.0.3:30303 --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,QBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
     ports:
       - "8548:8548"
       - "30306:30306"

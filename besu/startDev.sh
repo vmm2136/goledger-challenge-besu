@@ -83,6 +83,15 @@ if ! docker network ls | grep -q besu_network; then
   docker network create besu_network
 fi
 
+echo "Starting Postgres for value storage..."
+docker-compose -f docker/docker-compose-postgres.yaml up -d
+
+# Espera o banco ficar disponível
+echo "Waiting for Postgres to be ready..."
+until docker exec besu_postgres pg_isready -U besu > /dev/null 2>&1; do
+  sleep 1
+done
+
 echo "Starting bootnode"
 docker-compose -f docker/docker-compose-bootnode.yaml up -d
 

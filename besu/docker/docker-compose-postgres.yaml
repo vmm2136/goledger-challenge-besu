@@ -1,4 +1,25 @@
-FROM ubuntu:latest
-LABEL authors="Usuario"
+version: '3.8'
 
-ENTRYPOINT ["top", "-b"]
+services:
+  postgres:
+    image: postgres:16
+    container_name: besu_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: besu
+      POSTGRES_PASSWORD: besu123
+      POSTGRES_DB: besu
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+    networks:
+      - besu_network
+
+volumes:
+  pgdata:
+
+networks:
+  besu_network:
+    external: true
